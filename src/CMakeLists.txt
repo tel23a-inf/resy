@@ -1,1 +1,5 @@
-add_subdirectory(greet)
+add_subdirectory(reservation)
+add_subdirectory(seat)
+add_subdirectory(factories)
+add_subdirectory(files)
+add_subdirectory(resy)

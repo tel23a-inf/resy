@@ -1,4 +1,0 @@
-RESY_ADD_INLINE_TESTS(
-    SRC_FILE_STEM greet
-    TEST_CASES greet
-)
