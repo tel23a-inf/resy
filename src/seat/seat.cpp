@@ -14,7 +14,6 @@ size_t station_pos(std::vector<std::string> const& route,
 /// Prüft, ob eine Station in einer Route gültig ist.
 bool station_valid_for_route(std::vector<std::string> const& route,
                              std::string const& station) {
-  // HINWEIS: Verwenden Sie station_pos.
   // TODO
   return false;
 }
@@ -25,34 +24,23 @@ namespace resy {
 
 bool Seat::reservations_valid_for_route(
     std::vector<std::string> const& route) const {
-  // HINWEIS: Verwenden Sie Reservation::is_valid_for_route.
   // TODO
   return false;
 }
 
 bool Seat::reservations_overlap_for_route(
     std::vector<std::string> const& route) const {
-  // HINWEIS: Verwenden Sie Reservation::origin_pos und
-  //          Reservation::destination_pos in einer geschachtelten Schleife.
   // TODO
   return false;
 }
 
 bool Seat::seat_valid(std::vector<std::string> const& route) const {
-  // HINWEIS: Verwenden Sie reservations_valid_for_route und
-  //          reservations_overlap_for_route.
   // TODO
   return false;
 }
 
 std::vector<Reservation> Seat::reservations_sorted(
     std::vector<std::string> const& route) const {
-  // HINWEIS: Erstellen Sie eine Kopie der Reservierungen und sortieren Sie
-  //          diese anschließend. Dafür können Sie z.B. die Funktion std::sort
-  //          aus der STL verwenden.
-  //          Alternativ können Sie auch ihre eigene Sortierfunktion schreiben.
-  //          Wichtig: Ist die Sitzplatzbelegung ungültig, so macht die Funktion
-  //          keinen Sinn. Dies sollte also vorher geprüft werden.
   std::vector<Reservation> result = reservations;
   // TODO
   return result;
@@ -60,9 +48,6 @@ std::vector<Reservation> Seat::reservations_sorted(
 
 std::string Seat::display_for_station(std::vector<std::string> const& route,
                                       std::string const& station) const {
-  // HINWEIS: Verwenden Sie reservations_sorted und station_pos.
-  //          Prüfen Sie vorher, ob die Sitzplatzbelegung gültig ist
-  //          und ob die Station in der Route enthalten ist.
   // TODO
   return "frei";
 }

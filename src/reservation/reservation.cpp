@@ -17,9 +17,6 @@ size_t Reservation::destination_pos(
 
 bool Reservation::is_valid_for_route(
     std::vector<std::string> const& route) const {
-  // HINWEIS: Verwenden Sie origin_pos und destination_pos und bestimmen Sie die
-  // Länge der Route. Anschließend können Sie die Bedingung in einer Zeile
-  // prüfen.
   // TODO
   return false;
 }

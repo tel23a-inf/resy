@@ -7,10 +7,6 @@
 namespace resy {
 
 Reservation reservation_from_string(std::string const& str) {
-  // HINWEIS: Sie können z.B. die Methode std::string::find verwenden,
-  //          um die Position des Trennzeichens ';' zu finden.
-  //          Anschließend können Sie die Methode std::string::substr
-  //          verwenden, um die beiden Teile des Strings zu extrahieren.
   // TODO
   return {};
 }
@@ -18,7 +14,6 @@ Reservation reservation_from_string(std::string const& str) {
 std::vector<Reservation> reservations_from_strings(
     std::vector<std::string> const& strings) {
   std::vector<Reservation> reservations;
-  // HINWEIS: Verwenden Sie reservation_from_string in einer Schleife.
   // TODO
   return reservations;
 }
