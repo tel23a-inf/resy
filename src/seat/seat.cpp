@@ -18,6 +18,7 @@ size_t station_pos(std::vector<std::string> const& route,
 /// Prüft, ob eine Station in einer Route gültig ist.
 bool station_valid_for_route(std::vector<std::string> const& route,
                              std::string const& station) {
+  // HINWEIS: Verwenden Sie station_pos.
   return station_pos(route, station) < route.size();
 }
 
@@ -27,6 +28,7 @@ namespace resy {
 
 bool Seat::reservations_valid_for_route(
     std::vector<std::string> const& route) const {
+  // HINWEIS: Verwenden Sie Reservation::is_valid_for_route.
   for (auto r : reservations) {
     if (!r.is_valid_for_route(route)) {
       return false;
@@ -37,6 +39,8 @@ bool Seat::reservations_valid_for_route(
 
 bool Seat::reservations_overlap_for_route(
     std::vector<std::string> const& route) const {
+  // HINWEIS: Verwenden Sie Reservation::origin_pos und
+  //          Reservation::destination_pos in einer geschachtelten Schleife.
   for (size_t i = 0; i < reservations.size(); ++i) {
     for (size_t j = i + 1; j < reservations.size(); ++j) {
       if (reservations[i].origin_pos(route) <
@@ -51,12 +55,20 @@ bool Seat::reservations_overlap_for_route(
 }
 
 bool Seat::seat_valid(std::vector<std::string> const& route) const {
+  // HINWEIS: Verwenden Sie reservations_valid_for_route und
+  //          reservations_overlap_for_route.
   return reservations_valid_for_route(route) &&
          !reservations_overlap_for_route(route);
 }
 
 std::vector<Reservation> Seat::reservations_sorted(
     std::vector<std::string> const& route) const {
+  // HINWEIS: Erstellen Sie eine Kopie der Reservierungen und sortieren Sie
+  //          diese anschließend. Dafür können Sie z.B. die Funktion std::sort
+  //          aus der STL verwenden.
+  //          Alternativ können Sie auch ihre eigene Sortierfunktion schreiben.
+  //          Wichtig: Ist die Sitzplatzbelegung ungültig, so macht die Funktion
+  //          keinen Sinn. Dies sollte also vorher geprüft werden.
   if (!seat_valid(route)) return {};
 
   std::vector<Reservation> result = reservations;
@@ -69,6 +81,9 @@ std::vector<Reservation> Seat::reservations_sorted(
 
 std::string Seat::display_for_station(std::vector<std::string> const& route,
                                       std::string const& station) const {
+  // HINWEIS: Verwenden Sie reservations_sorted und station_pos.
+  //          Prüfen Sie vorher, ob die Sitzplatzbelegung gültig ist
+  //          und ob die Station in der Route enthalten ist.
   if (!seat_valid(route)) return "ggf. freigeben";
   if (!station_valid_for_route(route, station)) return "ggf. freigeben";
   size_t current_pos = station_pos(route, station);
