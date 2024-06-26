@@ -11,17 +11,15 @@ Reservation reservation_from_string(std::string const& str) {
   //          um die Position des Trennzeichens ';' zu finden.
   //          Anschließend können Sie die Methode std::string::substr
   //          verwenden, um die beiden Teile des Strings zu extrahieren.
-  auto pos = str.find(';');
-  return {str.substr(0, pos), str.substr(pos + 1)};
+  // TODO
+  return {};
 }
 
 std::vector<Reservation> reservations_from_strings(
     std::vector<std::string> const& strings) {
   std::vector<Reservation> reservations;
   // HINWEIS: Verwenden Sie reservation_from_string in einer Schleife.
-  for (auto const& str : strings) {
-    reservations.push_back(reservation_from_string(str));
-  }
+  // TODO
   return reservations;
 }
 

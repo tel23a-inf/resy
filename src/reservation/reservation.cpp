@@ -5,22 +5,14 @@
 namespace resy {
 
 size_t Reservation::origin_pos(std::vector<std::string> const& route) const {
-  for (size_t i = 0; i < route.size(); ++i) {
-    if (route[i] == origin) {
-      return i;
-    }
-  }
-  return route.size();
+  // TODO
+  return 0;
 }
 
 size_t Reservation::destination_pos(
     std::vector<std::string> const& route) const {
-  for (size_t i = 0; i < route.size(); ++i) {
-    if (route[i] == destination) {
-      return i;
-    }
-  }
-  return route.size();
+  // TODO
+  return 0;
 }
 
 bool Reservation::is_valid_for_route(
@@ -28,11 +20,8 @@ bool Reservation::is_valid_for_route(
   // HINWEIS: Verwenden Sie origin_pos und destination_pos und bestimmen Sie die
   // Länge der Route. Anschließend können Sie die Bedingung in einer Zeile
   // prüfen.
-  size_t op = origin_pos(route);
-  size_t dp = destination_pos(route);
-  size_t size = route.size();
-
-  return op != size && dp != size && op < dp;
+  // TODO
+  return false;
 }
 
 TEST_CASE("origin_pos") {
