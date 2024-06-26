@@ -53,8 +53,6 @@ std::vector<Reservation> Seat::reservations_sorted(
   //          Alternativ können Sie auch ihre eigene Sortierfunktion schreiben.
   //          Wichtig: Ist die Sitzplatzbelegung ungültig, so macht die Funktion
   //          keinen Sinn. Dies sollte also vorher geprüft werden.
-  if (!seat_valid(route)) return {};
-
   std::vector<Reservation> result = reservations;
   // TODO
   return result;
