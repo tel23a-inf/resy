@@ -12,19 +12,24 @@ function(RESY_ADD_INLINE_TESTS)
 
     set (SOURCE_NAME ${resy_cmake_SRC_FILE_STEM})
     set (TEST_TARGET ${SOURCE_NAME}_test)
+    set (TEST_LIB ${SOURCE_NAME}_test_lib)
     set (TEST_SOURCE ${resy_cmake_SRC_FILE_STEM}.cpp)
     set (TEST_CASES ${resy_cmake_TEST_CASES})
     set (LINK_LIBRARIES ${resy_cmake_LIBRARIES})
 
+    add_library(${TEST_LIB} ${TEST_SOURCE})
+    target_link_libraries(${TEST_LIB} PUBLIC doctest_main)
     add_executable(${TEST_TARGET} ${TEST_SOURCE})
-    target_link_libraries(${TEST_TARGET} doctest_main)
+    target_link_libraries(${TEST_TARGET} PUBLIC ${TEST_LIB})
     
     foreach(TEST_CASE ${TEST_CASES})
         add_test(NAME ${SOURCE_NAME}::${TEST_CASE} COMMAND ${TEST_TARGET} --test-case=${TEST_CASE})
+        message(STATUS "Added test ${SOURCE_NAME}::${TEST_CASE}")
+        message(STATUS "Command: ${TEST_TARGET} --test-case=${TEST_CASE}")
     endforeach()
 
     foreach(LIBRARY ${LINK_LIBRARIES})
-        target_link_libraries(${TEST_TARGET} ${LIBRARY})
+        target_link_libraries(${TEST_TARGET} PUBLIC ${LIBRARY})
     endforeach()
     
 endfunction(RESY_ADD_INLINE_TESTS)

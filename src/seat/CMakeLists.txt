@@ -1,4 +1,5 @@
 add_library(seat seat.cpp)
+target_link_libraries(seat PUBLIC reservation)
 target_compile_definitions(seat PUBLIC DOCTEST_CONFIG_DISABLE)
 
 RESY_ADD_INLINE_TESTS(
@@ -9,5 +10,5 @@ RESY_ADD_INLINE_TESTS(
       seat_valid
       reservations_sorted
       display_for_station
-    LIBRARIES reservation
+    LIBRARIES reservation_test_lib
 )
