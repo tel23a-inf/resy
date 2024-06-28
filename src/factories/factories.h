@@ -9,7 +9,7 @@ namespace resy {
 struct Reservation;
 
 /// Erwartet einen String und erstellt ein Reservierungsobjekt.
-/// Der String hat das Format "<origin>;<destination>".
+/// Der String hat das Format "origin;destination".
 Reservation reservation_from_string(std::string const& str);
 
 /// Erwartet eine Liste von Strings und erstellt eine Liste von Reservierungen.
