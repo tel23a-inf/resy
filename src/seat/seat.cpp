@@ -7,12 +7,7 @@ namespace {
 /// Liefert die Position einer Station in einer Route.
 size_t station_pos(std::vector<std::string> const& route,
                    std::string const& station) {
-  for (size_t i = 0; i < route.size(); ++i) {
-    if (route[i] == station) {
-      return i;
-    }
-  }
-  return route.size();
+  return std::find(route.begin(), route.end(), station) - route.begin();
 }
 
 /// Prüft, ob eine Station in einer Route gültig ist.
