@@ -1,6 +1,7 @@
 #ifndef SEAT_SEAT_H
 #define SEAT_SEAT_H
 
+#include <algorithm>
 #include <ostream>
 #include <string>
 #include <vector>
